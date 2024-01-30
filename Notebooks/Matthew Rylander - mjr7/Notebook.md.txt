@@ -1,0 +1,1 @@
+1/30/2024 - Met as a group to discuss project proposal and begin building Ultrasonic Sensor. We did some research and tried to figure out how an ultrasonic senor works. We also tested a working ultrasonic sensor with our ESP32 to make sure it had the capabilites to do so.
