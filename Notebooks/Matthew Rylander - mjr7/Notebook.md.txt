@@ -1,1 +1,3 @@
 1/30/2024 - Met as a group to discuss project proposal and begin building Ultrasonic Sensor. We did some research and tried to figure out how an ultrasonic senor works. We also tested a working ultrasonic sensor with our ESP32 to make sure it had the capabilites to do so.
+
+2/4/2024 - Met as a group to work on project proposal. Also completed our team contract. I did some research on our screen and realized that there may be an issue with 3.3-5v TX and Rx connections between the ESP32 and Screen. I plan on buying the screen to test it out and I will check on its viability later.
