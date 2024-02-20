@@ -1,3 +1,23 @@
 1/30/2024 - Met as a group to discuss project proposal and begin building Ultrasonic Sensor. We did some research and tried to figure out how an ultrasonic senor works. We also tested a working ultrasonic sensor with our ESP32 to make sure it had the capabilites to do so.
 
 2/4/2024 - Met as a group to work on project proposal. Also completed our team contract. I did some research on our screen and realized that there may be an issue with 3.3-5v TX and Rx connections between the ESP32 and Screen. I plan on buying the screen to test it out and I will check on its viability later.
+
+2/13/2024
+Met with TA
+Spoke about Design document. Looked through parts list to order components. Talked over changes that need to be made to the proposal including.
+Make High level requirements list more concise.
+Dumb down the visual aid
+Change block diagram (add stuff to arrows), make it smaller
+Add R/V table to replace subsystem verification
+Do tolerance Analysis for voltage regulator
+Quote IEEE for rule 3 (maybe add OSHA for smell) what if someone throws water at it
+Another thing someone could add is the weight of the bag (no more than 50 lbs). Look at sp23 team 21
+
+2/14/2024
+Met with group to revise proposal. Added Temperature sensor to Breadboard circuit. Ironed out details for which sensors are 5v (ultrasonic) and which sensors were 3.3v (Temperature/Humidity and Gas Sensor). Worked on R/V tables and divided up work for the rest of the week to tackle the proposal changes.
+
+2/16/2024
+Made slight modifications to Breadboard circuit. Protected the ESP32 from Utrasonic 5v signals through a voltage divider. Decided to use My trash can for the final demo and that we will be using a board above the can to mount our sensor. We will use boxes to "fill up" the can during the demo.
+
+2/19/2024
+Worked on Proposal revisions and added them to Latex document. Revised Ethics and Safety section to fit the needs of the class. Decided to use a Housing for the sensor to protect it from splashing water and other debris when trash is thrown in the can.
