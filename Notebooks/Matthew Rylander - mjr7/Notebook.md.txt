@@ -24,3 +24,5 @@ Worked on Proposal revisions and added them to Latex document. Revised Ethics an
 
 2/20/2024
 Spoke with TA, We will be buying a component for gas sensing on Amazon to test it with our breadboard. Need level shifters for bringing the 5v signal from the air quality sensor down to 3.3v for the esp32. Went over next steps for the Design document.
+
+Later today I met with Allen in the afternoon to work on the first-iteration PCB schematic for the sensor tag. We mostly finished the connections for the sensors, programming logic, and additional circuitry like a power connection. We also found a few components that we will need like a USB power supply, power cables, and micro-USB adapter board. We were unsure about a few things like the CTS vs. RTS pins in the programming circuit and which pins we should use on the WROOM-1 vs. the WROOM-32.
