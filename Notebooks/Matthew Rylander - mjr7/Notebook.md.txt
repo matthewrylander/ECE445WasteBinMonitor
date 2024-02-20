@@ -21,3 +21,6 @@ Made slight modifications to Breadboard circuit. Protected the ESP32 from Utraso
 
 2/19/2024
 Worked on Proposal revisions and added them to Latex document. Revised Ethics and Safety section to fit the needs of the class. Decided to use a Housing for the sensor to protect it from splashing water and other debris when trash is thrown in the can.
+
+2/20/2024
+Spoke with TA, We will be buying a component for gas sensing on Amazon to test it with our breadboard. Need level shifters for bringing the 5v signal from the air quality sensor down to 3.3v for the esp32. Went over next steps for the Design document.
