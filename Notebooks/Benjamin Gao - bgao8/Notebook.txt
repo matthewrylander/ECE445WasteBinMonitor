@@ -11,3 +11,7 @@
 2/18/2024 - Completed the modified visual aid, added R/V tables with concrete numbers to project proposal
 
 2/20/2024 - Met with TA to discuss the corrected Project Proposal, made suggested changes (adding numbers to requirements side of R/V tables) and submitted new Project Proposal
+
+2/21/2024 - Added custom footprints, footprint assignemnts to schematic. Corrected schematic symbols with N.C. connections. Created V1 of the Sensor Tag layout
+
+2/24/2024 - Created V2 of the sensor tag layout, passed pcbway trial. Discussed with group the parts available for powering the board (micro usb from lab)
