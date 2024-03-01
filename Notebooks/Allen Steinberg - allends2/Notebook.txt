@@ -9,3 +9,5 @@
 2/20/24 - TA meeting 2. Rewritten proposal looks mostly good (a few notes in doc). We should put sub-circuits in design doc (for each sensor, etc.). I met with Matt in the afternoon to work on the first-iteration PCB schematic for the sensor tag. We mostly finished the connections for the sensors, programming logic, and additional circuitry like a power connection. We also found a few components that we will need like a USB power supply, power cables, and micro-USB adapter board. We were unsure about a few things like the CTS vs. RTS pins in the programming circuit and which pins we should use on the WROOM-1 vs. the WROOM-32.
 
 2/29/24 - We went over the PCBs to make sure we're ready for the review tomorrow. We found a few issues like incorrect resistor and capacitor sizes, incorrect regulator type, and missing I2C pull-up resistors. We also made a list of which parts we still need to buy.
+
+3/1/24 - PCB review this afternoon. Only change needed: ESP32 antennas should be hanging off the side of the board (or have no signals or ground planes underneath).
