@@ -11,3 +11,5 @@
 2/29/24 - We went over the PCBs to make sure we're ready for the review tomorrow. We found a few issues like incorrect resistor and capacitor sizes, incorrect regulator type, and missing I2C pull-up resistors. We also made a list of which parts we still need to buy.
 
 3/1/24 - PCB review this afternoon. Only change needed: ESP32 antennas should be hanging off the side of the board (or have no signals or ground planes underneath).
+
+3/5/24 - Received remaining parts except Digikey parts. TA meeting - change high-level requirements to bullet points. Be ready to defend not using a battery. Explain air-quality index of sensor in greater detail in the final paper. Possible questions: why didn't you use an independent battery setup? Explain how air-quality index works?
