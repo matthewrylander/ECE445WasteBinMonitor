@@ -42,5 +42,10 @@ Things to do:
 
 3/5/2024
 Notes for TA meeting
+Things to do for our final presentation/doc
 -Explain the reasoning behind not having a battery
 -Beef up the explanation for air quality index
+
+3/18/2024
+Looked through lots of documentation on ESP32 and nextion programming as it will be different than our development board. 
+The second serial communication ports can be reconifigured to any GPIO pin using "Serial2.begin(115200, SERIAL_8N1, RXD2, TXD2);    //Hardware Serial of ESP32" where TXD2 an RXD2 are the numbers of pins used.
