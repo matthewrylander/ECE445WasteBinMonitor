@@ -1,14 +1,31 @@
 // Include Libraries
 #include <esp_now.h>
 #include <WiFi.h>
+#include <DHT.h>
+
  
 // Variables for test data
 int int_value;
 float float_value;
 bool bool_value = true;
+
+const int trigPin = 25;
+const int echoPin = 33;
+
+#define SOUND_SPEED 0.034
+#define CM_TO_INCH 0.393701
+
+#define DHT_SENSOR_PIN  32 // ESP32 pin GPIO21 connected to DHT22 sensor
+#define DHT_SENSOR_TYPE DHT22
+
+DHT dht_sensor(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
+
+long duration;
+float distanceCm;
+float distanceInch;
  
 // MAC Address of responder - edit as required
-uint8_t broadcastAddress[] = {0xD4, 0x8A, 0xFC, 0xAA, 0xE5, 0x90};
+uint8_t broadcastAddress[] = {0xD4, 0x8A, 0xFC, 0xAA, 0xEA, 0x40};
  
 // Define a data structure
 typedef struct struct_message {
@@ -31,7 +48,9 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
 }
  
 void setup() {
-  
+  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+
   // Set up Serial Monitor
   Serial.begin(115200);
  
@@ -57,27 +76,62 @@ void setup() {
     Serial.println("Failed to add peer");
     return;
   }
+
+  dht_sensor.begin(); // initialize the DHT sensor
 }
  
 void loop() {
  
-  // Create test data
- 
-  // Generate a random integer
-  int_value = random(1,20);
- 
-  // Use integer to make a new float
-  float_value = 1.3 * int_value;
+  // Clears the trigPin
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  // Sets the trigPin on HIGH state for 10 micro seconds
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+ // Reads the echoPin, returns the sound wave travel time in microseconds
+  duration = pulseIn(echoPin, HIGH);
+
+    // read humidity
+  float humi  = dht_sensor.readHumidity();
+  // read temperature in Celsius
+  float tempC = dht_sensor.readTemperature();
+  // read temperature in Fahrenheit
+  float tempF = dht_sensor.readTemperature(true);
+
+  // check whether the reading is successful or not
+  if ( isnan(tempC) || isnan(tempF) || isnan(humi)) {
+    Serial.println("Failed to read from DHT sensor!");
+  } else {
+    Serial.print("Humidity: ");
+    Serial.print(humi);
+    Serial.print("%");
+
+    Serial.print("  |  ");
+
+    Serial.print("Temperature: ");
+    Serial.print(tempC);
+    Serial.print("°C  ~  ");
+    Serial.print(tempF);
+    Serial.println("°F");
+  }
+
+
+  // Calculate the distance
+  distanceCm = duration * SOUND_SPEED/2;
+  
+  // Convert to inches
+  distanceInch = distanceCm * CM_TO_INCH;
  
   // Invert the boolean value
   bool_value = !bool_value;
   
   // Format structured data
   strcpy(myData.a, "ESPNOW is Cool!");
-  myData.b = int_value;
-  myData.c = float_value;
+  myData.b = 1;     //Can 1
+  myData.c = distanceInch;
   myData.d = bool_value;
-  
+  Serial.println(distanceInch);
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
    
@@ -87,5 +141,5 @@ void loop() {
   else {
     Serial.println("Sending error");
   }
-  delay(2000);
+  delay(1500);
 }
