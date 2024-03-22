@@ -25,18 +25,19 @@ float distanceCm;
 float distanceInch;
  
 // MAC Address of responder - edit as required
-uint8_t broadcastAddress[] = {0xD4, 0x8A, 0xFC, 0xAA, 0xEA, 0x40};
+uint8_t broadcastAddress[] = {0xF4, 0x12, 0xFA, 0xED, 0x4A, 0x1C}; //PCB
+// uint8_t broadcastAddress[] = {0xFF, 0x8A, 0xFC, 0xAA, 0xEA, 0x40}; //Dev Board
  
 // Define a data structure
-typedef struct struct_message {
-  char a[32];
-  int b;
-  float c;
-  bool d;
-} struct_message;
+typedef struct data_packet {
+  int canId;
+  int percentFull;
+  float temperature;
+  float humidity;
+} data_packet;
  
 // Create a structured object
-struct_message myData;
+data_packet myData;
  
 // Peer info
 esp_now_peer_info_t peerInfo;
@@ -92,7 +93,7 @@ void loop() {
  // Reads the echoPin, returns the sound wave travel time in microseconds
   duration = pulseIn(echoPin, HIGH);
 
-    // read humidity
+  // read humidity
   float humi  = dht_sensor.readHumidity();
   // read temperature in Celsius
   float tempC = dht_sensor.readTemperature();
@@ -127,11 +128,10 @@ void loop() {
   bool_value = !bool_value;
   
   // Format structured data
-  strcpy(myData.a, "ESPNOW is Cool!");
-  myData.b = 1;     //Can 1
-  myData.c = distanceInch;
-  myData.d = bool_value;
-  Serial.println(distanceInch);
+  myData.canId = 1;     //Can 1
+  myData.percentFull = distanceInch;
+  myData.temperature = tempF;
+  myData.humidity = humi;
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
    
