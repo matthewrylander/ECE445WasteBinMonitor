@@ -9,13 +9,15 @@ int int_value;
 float float_value;
 bool bool_value = true;
 
-const int trigPin = 25;
-const int echoPin = 33;
+const int trigPin = 5;
+const int echoPin = 6;
+const int MQ135Pin = 7;
+
 
 #define SOUND_SPEED 0.034
 #define CM_TO_INCH 0.393701
 
-#define DHT_SENSOR_PIN  32 // ESP32 pin GPIO21 connected to DHT22 sensor
+#define DHT_SENSOR_PIN  15 // ESP32 pin GPIO21 connected to DHT22 sensor
 #define DHT_SENSOR_TYPE DHT22
 
 DHT dht_sensor(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
@@ -100,6 +102,7 @@ void loop() {
   // read temperature in Fahrenheit
   float tempF = dht_sensor.readTemperature(true);
 
+  int MQ135_data = analogRead(MQ135Pin);
   // check whether the reading is successful or not
   if ( isnan(tempC) || isnan(tempF) || isnan(humi)) {
     Serial.println("Failed to read from DHT sensor!");
@@ -115,6 +118,8 @@ void loop() {
     Serial.print("°C  ~  ");
     Serial.print(tempF);
     Serial.println("°F");
+
+    Serial.println(MQ135_data);
   }
 
 

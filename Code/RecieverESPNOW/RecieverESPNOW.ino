@@ -17,6 +17,7 @@ typedef struct data_packet {
 data_packet myData;
 NexText can1percentage = NexText(0,1,"t1");
 NexText can1temp = NexText(0,1,"t6");
+NexText can1humid = NexText(0,1,"t10");
 NexProgressBar can1progressbar = NexProgressBar(0,1,"j0");
  
 // Callback function executed when data is received
@@ -36,11 +37,14 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   strcat(buffer,"%");
   can1percentage.setText(buffer);
   can1progressbar.setValue(int(round(myData.percentFull)));
-
+  // Temperature
   itoa(int(round(myData.temperature)),buffer,10); //(integer, yourBuffer, base)
   // strcat(buffer,char(176)+"F");
   can1temp.setText(buffer);
- 
+  // Humidity
+  itoa(int(round(myData.temperature)),buffer,10); //(integer, yourBuffer, base)
+  strcat(buffer,"%");
+  can1humid.setText(buffer);
 
 
 }
