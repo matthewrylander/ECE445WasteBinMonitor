@@ -49,3 +49,20 @@ Things to do for our final presentation/doc
 3/18/2024
 Looked through lots of documentation on ESP32 and nextion programming as it will be different than our development board. 
 The second serial communication ports can be reconifigured to any GPIO pin using "Serial2.begin(115200, SERIAL_8N1, RXD2, TXD2);    //Hardware Serial of ESP32" where TXD2 an RXD2 are the numbers of pins used.
+
+3/19/2024
+I spent a good deal of time this afternoon with Allen while we tried to solder our PCB and program the ESP32 on the board. This process proved difficult as we had some issues with the reflow oven, so we decided to use a heat gun instead. We spent many hours then trying to program the esp32 to no avail. We will continue to work on this tomorrow.
+
+3/20/2024
+After attempting to debug our board from yesterday, we have concluded that the ESP32 was likely fried by the heat gun when soldering. After coming to this conclusion, we reattempted to use the reflow oven with a fresh board and esp32 and were successful in soldering the microcontroller to the board with the oven. After that, Allen handsoldered the rest of the components to the board and we tested the programming functionality of our board. After some debugging we found the following problems:
+- The TX0 and RX0 needed to be flipped for the programmer
+- The RTS and DTR did not function as expected when programming, it is easier to omit this circuit and simply press the switches to put it in programming mode.
+- A few of the strapping circuits in our PCB are completely unecessary, we will not include these on the next iteration of our board.
+These discoveries led us to figuring out a way to successfully program the ESP32! We will continue to work on the ESP32 to Nextion interface for the rest of this week.
+
+3/24/2024
+Our group worked together to solder the sensor board pcb and test it. We ran into some issues with the ZMOD as programming information was not easily accessible. I spent a few hours looking into the libraries available but was unable to get the sensor working. We decided to look into our backup, the MQ135, and were able to get the sensor to work almost immediately.
+
+3/25/2024
+After showing our first run of the sensor board pcb to our TA, we were informed that the MQ135 sensor we ordered would be classified as a module so we would not be able to use it in our final project. As a result, we desoldered the MQ135 from the module and tested it individually on a breadboard to reverse engineer the module. We were able to reverse engineer the module with some resistors and added these components to our PCB. We sent out an order with these updated components.
+
