@@ -36,6 +36,7 @@ typedef struct data_packet {
   int percentFull;
   float temperature;
   float humidity;
+  int CO2Concentration;
 } data_packet;
  
 // Create a structured object
@@ -129,14 +130,12 @@ void loop() {
   // Convert to inches
   distanceInch = distanceCm * CM_TO_INCH;
  
-  // Invert the boolean value
-  bool_value = !bool_value;
-  
   // Format structured data
   myData.canId = 1;     //Can 1
   myData.percentFull = distanceInch;
   myData.temperature = tempF;
   myData.humidity = humi;
+  myData.CO2Concentration = MQ135_data;
   // Send message via ESP-NOW
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
    
