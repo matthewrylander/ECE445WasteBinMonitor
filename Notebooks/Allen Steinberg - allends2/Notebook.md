@@ -20,6 +20,8 @@
 
 3/20/24 - Matt and I met in the afternoon to try soldering a new hub board. We used the minimum selection of components needed to power and program the ESP32. We also used the oven to solder the ESP32 this time instead of the hot-air gun. After a few failed attempts, we were able to successfully program the ESP32 and have it print its MAC address to the Serial monitor. We only tried programming it once, so we aren't sure yet if it can be programmed consistently. A source of inconsistency may involve the buttons, as they need to be pressed in a particular way to put the ESP32 in programming mode.
 
+![Image](./Pictures/032024.jpg)
+
 3/23/24 - We all met in the afternoon to solder one sensor board. Ben and I did the soldering work while Matt prepared a test program for the ESP32. Both of these activities went smoothly for the most part. We tested every component on the board except the ZMOD4410 gas sensor and found that they all worked as expected (ESPNOW with the hub board, ultrasonic sensor, alternate gas sensor, and temperature/humidity sensor).
 
 3/26/24 - Team meeting. Will lose points if MQ135 module is used in final demo; can either get ZMOD working or reverse-engineer module and put the components on the board (or just accept the loss of points). Otherwise no changes are needed on the boards (messed-up voltage regulator is okay, etc.). After the meeting, we tested using the MQ135 desoldered from the module and found that it would be very straightforward. We redesigned the sensor board PCB to accommodate this change and removed the ZMOD. After that I worked on the hub UI for a bit on my own.
@@ -27,6 +29,8 @@
 4/2/24 - Team meeting. Asked about tips for final paper: rubric might have changed; possibly better to work on presentation now instead. Look at team 4 and team 16 from fall 2023 and team 21 from spring 2023 for good examples. Build on design document. For notebooks, definitely add more: add pictures of work (writing, diagrams, screenshots, etc.) in other places to Git. Don't expose gas sensor to ammonia (potential to damage sensor). Consider how to calibrate MQ135. Keep first iteration for demo (showing design path and demonstrating that the project is more complex than it may seem).
 
 4/10/24 - Matt and I met in the lab in the morning to try soldering at least one updated sensor board PCB which had just arrived. Soldering went smoothly, but we noticed that we had neglected to switch the RX and TX connections between the programmer and the ESP32. We were still able to program the ESP32, but we can't directly plug the programmer into the board; we have to connect wires between the two due to the incorrect connections. We also realized that the boards need to be reset when they are powered up by the user pressing the reset button, which is not ideal. We tested placing a 0.47 uF capacitor in parallel with the reset button and found that this allowed the board to automatically reset upon received power. This should not have been necessary as there is already a 1 uF capacitor in parallel with the button, so the capacitor might not be soldered properly. We will also need to consider how to calibrate the sensor values when they are displayed on the hub board display.
+
+![Image](./Pictures/041024.jpg)
 
 4/11/24 - We soldered another sensor board which worked well. I discovered that removing C2 on the sensor boards and hub board allowed the boards to automatically reset when powered up. The remaining tasks are to create 3D-printed cases for the boards and to figure out how to automatically calibrate the sensors, particularly the gas sensor.
 
@@ -37,3 +41,5 @@
 4/20/24 - We all met to test the project out a bit more and work on the report a bit. We ended up not accomplishing much.
 
 4/21/24 - Matt and I met around noon to make some final tweaks to the project, record some clips of the functioning project for the extra credit video, and otherwise prepare for the demo tomorrow.
+
+![Image](./Pictures/042124.jpg)
