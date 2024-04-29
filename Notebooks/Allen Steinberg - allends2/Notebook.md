@@ -2,7 +2,14 @@
 
 ![Image](./Pictures/013024.jpg)
 
-2/12/24 - We met in the afternoon to discuss the components we will need for the board to program the ESP32 and connect to the various sensors and peripherals.
+2/3/24 - After discussing the details of how our project will work at a high level, Ben created the high-level diagram shown below.
+
+![Image](./Pictures/020324.webp)
+
+2/12/24 - We met in the afternoon to discuss the components we will need for the board to program the ESP32 and connect to the various sensors and peripherals. The list of components is shown below.
+
+![Image](./Pictures/021224-1.png)
+![Image](./Pictures/021224-2.png)
 
 2/13/24 - Team meeting 1. Clarified a few questions about ordering components. Goal is to keep budget low and get everything in-house. "Dumb-down" diagram, simplify high-level requirements and make them more definite. In block diagram, make sensor part smaller and double it (hub-spoke model), and write I2C, etc., for sensors (protocols). Also put the protocols in subsystem section. Requirements and verifications should have RV-table (and we are missing verification part). Tolerance analysis lost the most points - add voltage regulator discussion, modify ultrasonic sensor part? Our professor is Fliflet who prioritizes ethics and safety. For this section, address all ethics and safety codes. OSHA? Talk about weight as well even though it's not part of our project. Consider how exposure to trash would affect sensor tag (housing?). Look at team 21 from Spring 2023. Consider heat dissipation from voltage regulation (thermal circuit). Choose particular trash can so tolerances, etc. can be more definite.
 
@@ -40,6 +47,6 @@
 
 4/20/24 - We all met to test the project out a bit more and work on the report a bit. We ended up not accomplishing much.
 
-4/21/24 - Matt and I met around noon to make some final tweaks to the project, record some clips of the functioning project for the extra credit video, and otherwise prepare for the demo tomorrow.
+4/21/24 - Matt and I met around noon to make some final tweaks to the project, record some clips of the functioning project for the extra credit video, and otherwise prepare for the demo tomorrow. I also helped to derive an equation to improve how the trash level bars show the level of trash within the can, as shown below.
 
 ![Image](./Pictures/042124.jpg)
