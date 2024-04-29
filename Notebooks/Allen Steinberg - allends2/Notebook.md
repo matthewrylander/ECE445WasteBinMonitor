@@ -6,6 +6,10 @@
 
 ![Image](./Pictures/020324.webp)
 
+2/4/24 - I performed a tolerance analysis for the maximum level of trash the can will be able to detect given the constraints of trash can width and ultrasonic sensor beam width. The equation is shown below.
+
+![Image](./Pictures/020424.png)
+
 2/6/24 - We considered whether to use a UART-to-USB converter IC on our board like the one on the ESP32 development board as shown in the image below. We ended up leaning toward not including this IC as the course website offers a simpler programming circuit which has the disadvantage of requiring a separate programmer.
 
 ![Image](./Pictures/020624.webp)
@@ -17,7 +21,10 @@
 
 2/13/24 - Team meeting 1. Clarified a few questions about ordering components. Goal is to keep budget low and get everything in-house. "Dumb-down" diagram, simplify high-level requirements and make them more definite. In block diagram, make sensor part smaller and double it (hub-spoke model), and write I2C, etc., for sensors (protocols). Also put the protocols in subsystem section. Requirements and verifications should have RV-table (and we are missing verification part). Tolerance analysis lost the most points - add voltage regulator discussion, modify ultrasonic sensor part? Our professor is Fliflet who prioritizes ethics and safety. For this section, address all ethics and safety codes. OSHA? Talk about weight as well even though it's not part of our project. Consider how exposure to trash would affect sensor tag (housing?). Look at team 21 from Spring 2023. Consider heat dissipation from voltage regulation (thermal circuit). Choose particular trash can so tolerances, etc. can be more definite.
 
-2/16/24 - We met in the afternoon to make the recommended changes to our project proposal, then Matt and I tested the ultrasonic and temperature sensors with the ESP32. We were able to verify that the ultrasonic sensor works correctly with a voltage divider leading between its ECHO output and the ESP32 input, and we also got the DHT22 temperature/humidity sensor working. The DHT22 only works with 3.3V and a direct connection to the ESP32 (no divider), while the ultrasonic sensor requires 5V but works with and without a divider. It should have a divider, though, to stay within the input voltage rating of the ESP32 IO pins.
+2/16/24 - We met in the afternoon to make the recommended changes to our project proposal, then Matt and I tested the ultrasonic and temperature sensors with the ESP32. We were able to verify that the ultrasonic sensor works correctly with a voltage divider leading between its ECHO output and the ESP32 input, and we also got the DHT22 temperature/humidity sensor working. The DHT22 only works with 3.3V and a direct connection to the ESP32 (no divider), while the ultrasonic sensor requires 5V but works with and without a divider. It should have a divider, though, to stay within the input voltage rating of the ESP32 IO pins. I also modified the tolerance analysis section of our project proposal as requested by our TA, including an analysis of voltage regulator temperature. A screenshot is included below.
+
+![Image](./Pictures/021624-1.png)
+![Image](./Pictures/021624-2.png)
 
 2/20/24 - TA meeting 2. Rewritten proposal looks mostly good (a few notes in doc). We should put sub-circuits in design doc (for each sensor, etc.). I met with Matt in the afternoon to work on the first-iteration PCB schematic for the sensor tag. We mostly finished the connections for the sensors, programming logic, and additional circuitry like a power connection. We also found a few components that we will need like a USB power supply, power cables, and micro-USB adapter board. We were unsure about a few things like the CTS vs. RTS pins in the programming circuit and which pins we should use on the WROOM-1 vs. the WROOM-32.
 
@@ -29,8 +36,8 @@
 
 3/19/24 - Matt and I met in the lab in the morning to attempt soldering. Specifically, we wanted to try soldering enough components onto the hub board so that we could try programming the ESP32. We ended up soldering almost all the components on the board as they were all needed for programming or power. During this process, we noticed that the voltage regulator we bought doesn't match the footprint on the board. We were able to bend the pins on the regulator we have and solder it in anyway. Unfortunately, we were not able to program the ESP32. It gave an error message indicating that no data was received from the ESP32. We noticed a few mistakes in our programming circuit which we were able to fix, such as mixing up RX and TX, but the issue remained. We tried using the programmer to program an ESP32 on a development board and found that this worked as expected, so we suspect that the ESP32 may have been damaged during soldering, since we had to use a hot air gun instead of a soldering oven. The pictures below show the solder paste we used (to reference it's datasheet) and the completed, non-functional hub board.
 
-![Image](./Pictures/031924-1.png)
-![Image](./Pictures/031924-2.png)
+![Image](./Pictures/031924-1.jpg)
+![Image](./Pictures/031924-2.jpg)
 
 3/20/24 - Matt and I met in the afternoon to try soldering a new hub board. We used the minimum selection of components needed to power and program the ESP32. We also used the oven to solder the ESP32 this time instead of the hot-air gun. After a few failed attempts, we were able to successfully program the ESP32 and have it print its MAC address to the Serial monitor. We only tried programming it once, so we aren't sure yet if it can be programmed consistently. A source of inconsistency may involve the buttons, as they need to be pressed in a particular way to put the ESP32 in programming mode.
 
