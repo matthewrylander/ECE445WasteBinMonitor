@@ -1,6 +1,6 @@
 1/30/24 - We met in the afternoon to investigate the use of ultrasonic sensors with the ESP32. We experimented with some basic amplifier circuits for the receiver and a simple MOSFET-based driver for the transmitter. We struggled to determine whether these circuits were working and also found it difficult to generate a 40 kHz signal on the ESP32. We referred to the following website for information on ultrasonic sensor circuits: http://www.kerrywong.com/2011/01/22/a-sensitive-diy-ultrasonic-range-sensor/
 
-https://github.com/matthewrylander/ECE445WasteBinMonitor/tree/main/Notebooks/Allen%20Steinberg%20-%20allends2/Pictures/013024.jpg
+!(https://github.com/matthewrylander/ECE445WasteBinMonitor/tree/main/Notebooks/Allen%20Steinberg%20-%20allends2/Pictures/013024.jpg)
 
 2/12/24 - We met in the afternoon to discuss the components we will need for the board to program the ESP32 and connect to the various sensors and peripherals.
 
