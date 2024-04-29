@@ -29,3 +29,9 @@
 4/11/24 - We soldered another sensor board which worked well. I discovered that removing C2 on the sensor boards and hub board allowed the boards to automatically reset when powered up. The remaining tasks are to create 3D-printed cases for the boards and to figure out how to automatically calibrate the sensors, particularly the gas sensor.
 
 4/16/24 - We met in the morning before our mock demo to test the nearly-completed project. However, we found that the hub board power rails were shorted. We eventually discovered that the USB connector had been damaged and was likely shorted internally, most likely because Ben sat on it. We replaced the connector successfully and performed a simple mock demo for Nikhil. After this, we decided to use project boxes for the housings of the sensor boards instead of 3D-printed enclosures since Ben's 3D printer hasn't been working well. We still plan to use a 3D-printed enclosure for the hub board for now.
+
+4/18/24 - Matt and I met in the afternoon to test the project a little more, work on the team contract fulfillment document, and make some minor changes to the code.
+
+4/20/24 - We all met to test the project out a bit more and work on the report a bit. We ended up not accomplishing much.
+
+4/21/24 - Matt and I met around noon to make some final tweaks to the project, record some clips of the functioning project for the extra credit video, and otherwise prepare for the demo tomorrow.
