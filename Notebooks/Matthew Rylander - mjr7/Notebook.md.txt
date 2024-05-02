@@ -66,3 +66,21 @@ Our group worked together to solder the sensor board pcb and test it. We ran int
 3/25/2024
 After showing our first run of the sensor board pcb to our TA, we were informed that the MQ135 sensor we ordered would be classified as a module so we would not be able to use it in our final project. As a result, we desoldered the MQ135 from the module and tested it individually on a breadboard to reverse engineer the module. We were able to reverse engineer the module with some resistors and added these components to our PCB. We sent out an order with these updated components.
 
+4/2/2024
+Team meeting with TA. Got tips on which final papers we should use as examples (Team 4 and 16). We can take a lot from our design document. We should not use ammonia to test the MQ135 as it could damage the sensor and ourselves. Calibration of the MQ135 should occur before our demo.
+
+4/11/2024
+We soldered another sensor successfuly with minimal issues. Allen looked into making the boards reset automatically on startup by removing a capacitor. This makes it so you can simply plug in the project and it will launch successsfully. We discussed some design ideas with ben so he can 3D print the cases for our project.
+
+4/16/24
+Ben sat on the hub board lol. This bent one of our microusb plugs which in turn fried our wall plug. It took us a while to figure out what was wrong but we were eventually able to replace the plug and get it all working again. 
+
+4/18/24 
+Allen and I met to work on the team contract fulfillment document. We also made some changes to how the hub displayed the fullness of a can to negate erronious random spikes that sometimes happened.
+
+
+4/21/24
+Allen and I worked on recording clips for the video. We also prepared a few more things for the demo.
+
+
+
