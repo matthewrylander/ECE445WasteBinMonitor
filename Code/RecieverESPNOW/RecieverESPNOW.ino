@@ -40,11 +40,12 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
 
   //Can 1
   if(myData.canId == 1){
-    myData.percentFull = 40 - myData.percentFull+4;// 4 inches away is 100% full. 50 inches is the size of the bin
+    int heightofCan1 = 26; //40 inches is the size of the bin
+    myData.percentFull = heightofCan1 - myData.percentFull;// 4 inches away is 100% full.
     if(myData.percentFull < 0){
-      myData.percentFull = 0;
+      myData.percentFull = 0;  
     }
-    myData.percentFull = myData.percentFull * 2.5;
+    myData.percentFull = myData.percentFull * 100/heightofCan1;
     if(myData.percentFull > 100){
       myData.percentFull = 100;
     }
@@ -53,7 +54,7 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
     strcat(buffer,"%");
     can1percentage.setText(buffer);
     can1progressbar.setValue(int(round(myData.percentFull)));
-    if(int(round(myData.percentFull)) > 94){
+    if(int(round(myData.percentFull)) > 89){
       can1progressbar.Set_font_color_pco(61700);
     }else{
       can1progressbar.Set_font_color_pco(26282);
@@ -84,19 +85,22 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
     }else{
       if(myData.CO2Concentration < AQ1_Baseline){
         myData.CO2Concentration = AQ1_Baseline;
-      }else if(myData.CO2Concentration > AQ1_Baseline+500){
-        myData.CO2Concentration = AQ1_Baseline+500;
+      }else if(myData.CO2Concentration > AQ1_Baseline+400){
+        myData.CO2Concentration = AQ1_Baseline+400;
       }
-      myData.CO2Concentration = (myData.CO2Concentration - AQ1_Baseline)*225/500;
+      myData.CO2Concentration = (myData.CO2Concentration - AQ1_Baseline)*225/400;
       can1AQ.setValue(int(round(myData.CO2Concentration)));
     }
   }
   if(myData.canId == 2){
-    myData.percentFull = 40 - myData.percentFull+4;// 4 inches away is 100% full. 50 inches is the size of the bin
+    int heightofCan2 = 23; //40 inches is the size of the bin
+    
+    myData.percentFull = heightofCan2 - myData.percentFull;// 4 inches away is 100% full. 50 inches is the size of the bin
+    
     if(myData.percentFull < 0){
       myData.percentFull = 0;
     }
-    myData.percentFull = myData.percentFull * 2.5;
+    myData.percentFull = myData.percentFull * 100/heightofCan2;
     if(myData.percentFull > 100){
       myData.percentFull = 100;
     }
@@ -105,7 +109,7 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
     strcat(buffer,"%");
     can2percentage.setText(buffer);
     can2progressbar.setValue(int(round(myData.percentFull)));
-    if(int(round(myData.percentFull)) > 94){
+    if(int(round(myData.percentFull)) > 89){
       can2progressbar.Set_font_color_pco(61700);
     }else{
       can2progressbar.Set_font_color_pco(26282);
@@ -136,10 +140,10 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
     }else{
       if(myData.CO2Concentration < AQ2_Baseline){
         myData.CO2Concentration = AQ2_Baseline;
-      }else if(myData.CO2Concentration > AQ2_Baseline+500){
-        myData.CO2Concentration = AQ2_Baseline+500;
+      }else if(myData.CO2Concentration > AQ2_Baseline+400){
+        myData.CO2Concentration = AQ2_Baseline+400;
       }
-      myData.CO2Concentration = (myData.CO2Concentration - AQ2_Baseline)*225/500;
+      myData.CO2Concentration = (myData.CO2Concentration - AQ2_Baseline)*225/400;
       can2AQ.setValue(int(round(myData.CO2Concentration)));
     }
   }
@@ -160,13 +164,20 @@ void setup() {
   
   // Register callback function  
   esp_now_register_recv_cb(OnDataRecv);
-
+  delay(1000);
   can1percentage.setText("...");
 
   AQ1_Baseline = -10;
   AQ2_Baseline = -10;
   AQ1_Avg = 1;
   AQ2_Avg = 1;
+
+  can1temp.setText("--");
+  can1humid.setText("--");
+  can2temp.setText("--");
+  can2humid.setText("--");
+  can1percentage.setText("--");
+  can2percentage.setText("--");
 }
  
 void loop() {

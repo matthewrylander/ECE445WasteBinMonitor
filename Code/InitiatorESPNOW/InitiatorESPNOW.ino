@@ -86,16 +86,20 @@ void setup() {
  
 void loop() {
  
-  // Clears the trigPin
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
- // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(echoPin, HIGH);
-
+  duration = 0;
+  for (int i = 0; i < 5; i++){
+    // Clears the trigPin
+    digitalWrite(trigPin, LOW);
+    delayMicroseconds(2);
+    // Sets the trigPin on HIGH state for 10 micro seconds
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin, LOW);
+  // Reads the echoPin, returns the sound wave travel time in microseconds
+    duration += pulseIn(echoPin, HIGH);
+    delay(10);
+  }
+  duration = duration/5; //Gets the average of 5 read in values
   // read humidity
   float humi  = dht_sensor.readHumidity();
   // read temperature in Celsius
