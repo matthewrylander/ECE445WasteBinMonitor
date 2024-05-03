@@ -49,6 +49,10 @@ Communicated with remotely after Matt and Allen soldered sensor board. Talked ab
 4/13/2024
 Arrived back on campus and started working on bringing my 3d printer online after a year of disuse and 3d modelling the cases. Measured the locations of the openings for the sensors and figured out how to stack the screen on top of the hub board to integrate them in one case.
 
+![image](https://github.com/matthewrylander/ECE445WasteBinMonitor/assets/22122062/22fcd1df-5895-4b60-8766-9b1891fddedc)
+![image](https://github.com/matthewrylander/ECE445WasteBinMonitor/assets/22122062/84b38338-67ea-4622-ad8d-24ada9388109)
+
+
 4/14/2024 
 Started printing hub case, ran into several issues related to printer underextrusion and adhesion. Multiple failed prints and printer tuning.
 
