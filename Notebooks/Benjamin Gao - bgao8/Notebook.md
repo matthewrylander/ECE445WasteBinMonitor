@@ -8,13 +8,16 @@
 
 
 2/16/2024 - Made initial version of schematic for the tag. Took portions of ESP32 example circuit needed from website (programming circuit) and added connectors for the sensors on the trash tag.
+
 ![image](https://github.com/matthewrylander/ECE445WasteBinMonitor/assets/22122062/0bf9d769-cccb-4bf1-ab21-02c8764a10e8)
 
 
 2/18/2024 - Completed the modified visual aid, added R/V tables with concrete numbers to project proposal
+
 ![image](https://github.com/matthewrylander/ECE445WasteBinMonitor/assets/22122062/4ef5606d-85eb-4073-9aa0-2b2af9b847fc)
 
 2/20/2024 - Met with TA to discuss the corrected Project Proposal, made suggested changes (adding numbers to requirements side of R/V tables) and submitted new Project Proposal. Made mockup 3d models.
+
 ![image](https://github.com/matthewrylander/ECE445WasteBinMonitor/assets/22122062/3a42c7f1-aaee-4cec-ad21-26760dfd77d9)
 ![image](https://github.com/matthewrylander/ECE445WasteBinMonitor/assets/22122062/c6235dc3-b4c5-4625-82f2-63877547e434)
 
@@ -22,9 +25,11 @@
 2/21/2024 - Added custom footprints, footprint assignemnts to schematic. Corrected schematic symbols with N.C. connections. Created V1 of the Sensor Tag layout
 
 2/24/2024 - Created V2 of the sensor tag layout, passed pcbway trial. Discussed with group the parts available for powering the board (micro usb from lab). Identified issues such as missing ground planes.
+
 ![image](https://github.com/matthewrylander/ECE445WasteBinMonitor/assets/22122062/11d0162b-a267-4b12-babe-2509f69b5fc1)
 
 2/25/2024 - Created V1 of the Hub board layout
+
 ![image](https://github.com/matthewrylander/ECE445WasteBinMonitor/assets/22122062/27baf644-486e-4084-a685-228c6527ef88)
 
 
@@ -49,11 +54,13 @@ Started printing hub case, ran into several issues related to printer underextru
 
 4/15/2024 
 Talked with group about progress on the prints. Continued to run into various printer issues and fixing them one by one. (cleaned bed, cold pull on printer nozzle, replaced the extruder springs, oiled the z axis screw, generally just a massive pain). Around ~10-15 failed prints at this point, about half of which failed halfway thru due to extruder clogs or z axis skipping. See image: underextrusion that later led to a nozzle clog. and failed the print 70% thru.
+
 ![IMG_3890](https://github.com/matthewrylander/ECE445WasteBinMonitor/assets/22122062/371ca050-84e7-4acc-b67a-73c2123208e3)
 
 
 4/16/24
 Met with the group. Hub board didn't work due to me sitting on the hub board while modelling it. We desoldered various components until we figured out that the issue was the microusb plug, which we promptly replaced via a microusb from an old experimental board with the heat gun. Got it to work again and mount inside the hub case. We decided to order some project boxes in case the case for the sensor boards also ran into printing issues. The hub case lid was yet to be printed.
+
 ![IMG_3891](https://github.com/matthewrylander/ECE445WasteBinMonitor/assets/22122062/27d997fa-91c3-4433-8d3c-114559739b82)
 
 
@@ -68,6 +75,7 @@ Communicated with team remotely about my responsibilities regarding prepping for
 
 4/22/24
 30 min before the demo, made some minor changes to the case regarding final assembly and adding inset nuts. Assembled all the cases together for the demo.
+
 ![IMG_3892](https://github.com/matthewrylander/ECE445WasteBinMonitor/assets/22122062/02451e4c-60c6-4b92-9845-a520458637ab)
 
 
